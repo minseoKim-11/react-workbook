@@ -1,14 +1,29 @@
-.todoLine{
+
+.title {
+    text-align: center;
+    display:block;
+    color: #333;
+    background-color: beige;
+    font-size: 20px ;
+    font-style:normal;
+    height: 40px;
+    width: 700px;
+    align-items: center;
+}
+
+.todoList {
     display: flex;
-    margin: 10px;
-    padding: 8px;
-    font-size: 18px;
-    border: 2px solid #888;
+    flex-direction: column;
+}
+
+.todoItem {
+    display: flex;
+    align-items: center;
+    background:rgb(71, 92, 72);
     border-radius: 6px;
     width: 300px;
-    height: 36px;
-    line-height: 36px;
-    background-color:rgb(222, 217, 217);
-    color: brown;
-    border: 2px rgb(222, 217, 217);
+    margin-left: 10px;
+    color: white;
+    font-size: 16px;
+
 }

@@ -13,7 +13,6 @@ function App() {
   const [editingId, setEditingId] = useState(null); 
   const [editingText, setEditingText] = useState(''); 
 
-  // 1. 추가하기
   const addTodo = () => {
     if (text.trim() === '') return;
     setTodos((prev) => [
@@ -23,12 +22,10 @@ function App() {
     setText('');
   };
 
-  // 2. 삭제하기
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // 3. 수정하기
   const updateTodo = (id, newText) => {
     setTodos((prev) =>
       prev.map((item) =>
@@ -39,7 +36,6 @@ function App() {
     setEditingText('');
   };
 
-  // submit 시 새로고침 방지
   const handleSubmit = (e) => {
     e.preventDefault();
     addTodo();
@@ -47,35 +43,27 @@ function App() {
 
   return (
     <>
+    <div className='title'>TODO LIST</div>
       <form onSubmit={handleSubmit}>
+      <div className='todoItem'>
         <MyInput
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <MyButton 
-          onClick={addTodo}
-          label="할 일 등록">
-        </MyButton>
+      </div>
+      <MyButton onClick={addTodo} label="할 일 등록" />
       </form>
 
-      <div>
+      <div>   
         {todos.map((todo) => (
           <div key={todo.id} style={{ display: 'flex', gap: '20px', marginTop: '10px' }}>
-            {/* 수정 중이 아닐 때 */}
-            {editingId !== todo.id && (
-              <div
-              className='todoLine' 
-              style={{ display: 'flex', gap: '5px' }}>
+            {editingId !== todo.id ? (
+              <div className='todoItem' style={{ display: 'flex', gap: '5px' }}>
                 <p>{todo.id}.</p>
                 <p>{todo.task}</p>
               </div>
-            )}
-
-            {/* 수정 중일 때 */}
-            {editingId === todo.id && (
-              <div 
-              className='todoLine' 
-              style={{ display: 'flex', gap: '5px' }}>
+            ) : (
+              <div className='todoItem'>
                 <p>{todo.id}.</p>
                 <MyInput
                   value={editingText}
@@ -83,16 +71,14 @@ function App() {
                 />
               </div>
             )}
-            <MyButton onClick={() => deleteTodo(todo.id)} label='삭제'/>
-
+            <MyButton onClick={() => deleteTodo(todo.id)} label='삭제' />
             {editingId === todo.id ? (
-              <MyButton onClick={() => updateTodo(editingId, editingText)} label='수정 완료'/>
-        
+              <MyButton onClick={() => updateTodo(editingId, editingText)} label='수정 완료' />
             ) : (
               <MyButton onClick={() => {
                 setEditingId(todo.id);
                 setEditingText(todo.task);
-              }} label='수정 진행'/>
+              }} label='수정 진행' />
             )}
           </div>
         ))}

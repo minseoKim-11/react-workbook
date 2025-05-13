@@ -9,16 +9,15 @@ function MovieImage({ baseUrl }) {
     <>
       {movies.map((movie) => {
         console.log('poster path:', movie.poster_path); 
-
         return (
           <div className="movieCard">
-          <img
-            key={movie.id}
-            className="movieImage"
-            src={`${baseUrl}${movie.poster_path}`}
-            alt={movie.title}
-          />
-          <div className="overlay" />
+            <img
+              key={movie.id}
+              className="movieImage"
+              src={`${baseUrl}${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <div className="overlay" />
           </div>
         );
       })}

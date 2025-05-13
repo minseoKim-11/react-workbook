@@ -1,11 +1,10 @@
 .MyInput {
-    margin: 10px;
-    padding: 8px;
-    font-size: 18px;
+    padding: 1cqh;
     border: 2px solid #888;
+    font-size: 16px;
     border-radius: 6px;
     width: 200px;
-    background-color:rgb(222, 217, 217);
-    color: brown;
+    background-color:rgb(71, 92, 72);
+    color: rgb(255, 255, 255);
     border: 2px rgb(222, 217, 217);
 }

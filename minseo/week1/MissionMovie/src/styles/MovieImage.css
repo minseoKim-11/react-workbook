@@ -3,6 +3,7 @@
     height: 150px;
     border-radius: 8px;
 }
+
 .movieCard {
     position: relative;
 }
@@ -19,7 +20,6 @@
     border-radius: 8px;
     width: 100px;
     height: 150px;
-
 }
 
 .movieCard:hover .overlay {
