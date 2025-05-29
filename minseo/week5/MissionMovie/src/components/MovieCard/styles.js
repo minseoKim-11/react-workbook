@@ -19,7 +19,9 @@ export const CardContainer = styled.div`
     padding: 6px;
     flex-wrap: wrap;
     justify-content: flex-start;
-
+    &:hover {
+        cursor: pointer;
+    }
     &:hover ${Over} {
         opacity: 1;
     }
